@@ -76,19 +76,29 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\AddItemDialogController.js" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\DefinatelyTyped\angular\angular-mocks.d.ts" />
+    <Content Include="Scripts\DefinatelyTyped\angular\angular-resource.d.ts" />
+    <Content Include="Scripts\DefinatelyTyped\angular\angular-scenario.d.ts" />
+    <Content Include="Scripts\DefinatelyTyped\angular\angular.d.ts" />
+    <Content Include="Scripts\DefinatelyTyped\jasmine\jasmine.d.ts" />
+    <Content Include="Scripts\DefinatelyTyped\jquery\jquery.d.ts" />
+    <Content Include="Scripts\DefinatelyTyped\underscore\underscore.d.ts" />
     <Content Include="Scripts\jtSetFocus.js" />
     <Content Include="Scripts\jtValidationDirectives.js" />
+    <TypeScriptCompile Include="Scripts\models.ts" />
+    <Content Include="Scripts\models.js">
+      <DependentUpon>models.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts\NameListService.js" />
     <Content Include="Scripts\PollyFill\html5shiv.js" />
     <Content Include="Scripts\PollyFill\json2.js" />
-    <TypeScriptCompile Include="test.ts" />
-    <Content Include="test.js">
-      <DependentUpon>test.ts</DependentUpon>
+    <TypeScriptCompile Include="Scripts\_all.ts" />
+    <Content Include="Scripts\_all.js">
+      <DependentUpon>_all.ts</DependentUpon>
     </Content>
     <Content Include="Tests\EndToEndTests\EndToEndTestHttpBackendSetup.js" />
     <Content Include="Tests\EndToEndTests\EndToEndTestRunner.html" />
     <Content Include="Tests\EndToEndTests\EndToEndTestScenarios.js" />
-    <Content Include="Scripts\models.js" />
     <Content Include="Styles\NameList.css" />
     <Content Include="NameList.aspx" />
     <Content Include="Scripts\NameListController.js" />

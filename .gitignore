@@ -70,6 +70,9 @@ WebWorkbench.mswwsettings
 packages/
 node_modules/
 
+# TypeScript sourcemap files
+*.js.map
+
 # Visual C++ cache files
 ipch/
 *.aps

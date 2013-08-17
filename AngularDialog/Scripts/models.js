@@ -1,15 +1,30 @@
-﻿(function () {
+var nameList;
+(function (nameList) {
+    (function (models) {
+        "use strict";
 
-    "use strict";
+        var Item = (function () {
+            function Item() {
+            }
+            return Item;
+        })();
+        models.Item = Item;
 
-    window.nameList = window.nameList || {};
-    window.nameList.models = window.nameList.models || {};
+        var NameListModel = (function () {
+            function NameListModel() {
+                this.items = [];
+            }
+            return NameListModel;
+        })();
+        models.NameListModel = NameListModel;
 
-    window.nameList.models.NameListModel = function () {
-        this.items = [];
-    };
-
-    window.nameList.models.AddItemDialogModel = function () {
-        this.item = {};
-    };
-} ());
+        var AddItemDialogModel = (function () {
+            function AddItemDialogModel() {
+            }
+            return AddItemDialogModel;
+        })();
+        models.AddItemDialogModel = AddItemDialogModel;
+    })(nameList.models || (nameList.models = {}));
+    var models = nameList.models;
+})(nameList || (nameList = {}));
+//@ sourceMappingURL=models.js.map
