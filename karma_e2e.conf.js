@@ -13,7 +13,7 @@ module.exports = function(config) {
 
 
 	proxies: {
-		"/": "http://localhost:58587/"
+		"/": "http://localhost:58589/"
 	},
 
 
