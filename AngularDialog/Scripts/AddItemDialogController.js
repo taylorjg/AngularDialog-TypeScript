@@ -12,7 +12,7 @@
 
     app.controller("nameList.controllers.AddItemDialogController", ["$scope", "dialog", "item", function ($scope, dialog, item) {
 
-        $scope.addItemDialogModel = new nameList.models.AddItemDialogModel();
+        $scope.addItemDialogModel = new NameList.Models.AddItemDialogModel();
         $scope.addItemDialogModel.item = item;
         $scope.setFocusToFirstNameField = true;
         $scope.dialogTitle = (item.Id) ? "Edit Item " + item.Id : "Add Item";

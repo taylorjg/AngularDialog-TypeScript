@@ -32,11 +32,43 @@ module NameList.Controllers {
         }
 
         private onEditItem(item: NameList.Models.Item) {
-            alert("onEditItem: " + item.Id);
+            var self = this;
+            var dialog = this.$dialog.dialog({
+                modalFade: true,
+                resolve: {
+                    item: function () {
+                        return item;
+                    }
+                }
+            });
+            dialog.open("AddItemDialog.html", "nameList.controllers.AddItemDialogController").then(function (result) {
+                if (result) {
+                    self.nameListService.save(item, function () {
+                        self.$scope.nameListModel.items = self.nameListService.query();
+                    });
+                }
+            });
         }
 
         private onDeleteItem(item: NameList.Models.Item) {
-            alert("onDeleteItem: " + item.Id);
+
+            var self = this;
+
+            var messageBox = this.$dialog.messageBox(
+                "Delete Item " + item.Id,
+                "Are you sure you want to delete this item?",
+                [
+                    { label: "Yes", result: true, cssClass: "btn-danger deleteYesBtn" },
+                    { label: "No", result: false, cssClass: "deleteNoBtn" }
+                ]);
+
+            messageBox.open().then(function (result) {
+                if (result) {
+                    self.nameListService.remove(item, function () {
+                        self.$scope.nameListModel.items = self.nameListService.query();
+                    });
+                }
+            });
         }
     }
 

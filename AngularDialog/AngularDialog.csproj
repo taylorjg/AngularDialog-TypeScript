@@ -115,7 +115,6 @@
     <Content Include="Tests\EndToEndTests\EndToEndTestScenarios.js" />
     <Content Include="Styles\NameList.css" />
     <Content Include="NameList.aspx" />
-    <Content Include="Scripts\NameListController_old.js" />
     <Content Include="Scripts\ThirdParty\AngularJS\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\ThirdParty\AngularJS\angular-bootstrap-prettify.min.js" />
     <Content Include="Scripts\ThirdParty\AngularJS\angular-bootstrap.js" />
