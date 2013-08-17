@@ -79,13 +79,13 @@
     <Content Include="Scripts\app.js">
       <DependentUpon>app.ts</DependentUpon>
     </Content>
-    <Content Include="Scripts\DefinatelyTyped\angular\angular-mocks.d.ts" />
-    <Content Include="Scripts\DefinatelyTyped\angular\angular-resource.d.ts" />
-    <Content Include="Scripts\DefinatelyTyped\angular\angular-scenario.d.ts" />
-    <Content Include="Scripts\DefinatelyTyped\angular\angular.d.ts" />
-    <Content Include="Scripts\DefinatelyTyped\jasmine\jasmine.d.ts" />
-    <Content Include="Scripts\DefinatelyTyped\jquery\jquery.d.ts" />
-    <Content Include="Scripts\DefinatelyTyped\underscore\underscore.d.ts" />
+    <Content Include="Scripts\DefinitelyTyped\angular\angular-mocks.d.ts" />
+    <Content Include="Scripts\DefinitelyTyped\angular\angular-resource.d.ts" />
+    <Content Include="Scripts\DefinitelyTyped\angular\angular-scenario.d.ts" />
+    <Content Include="Scripts\DefinitelyTyped\angular\angular.d.ts" />
+    <Content Include="Scripts\DefinitelyTyped\jasmine\jasmine.d.ts" />
+    <Content Include="Scripts\DefinitelyTyped\jquery\jquery.d.ts" />
+    <Content Include="Scripts\DefinitelyTyped\underscore\underscore.d.ts" />
     <Content Include="Scripts\jtSetFocus.js" />
     <Content Include="Scripts\jtValidationDirectives.js" />
     <TypeScriptCompile Include="Scripts\models.ts" />
