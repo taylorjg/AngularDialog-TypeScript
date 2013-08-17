@@ -1,6 +1,6 @@
 /// <reference path='_all.ts' />
 
-module nameList {
+module NameList {
     "use strict";
     var app = angular.module("NameListApp", ["ngResource", "ui", "ui.bootstrap"]);
 }

@@ -1,7 +1,7 @@
-var nameList;
-(function (nameList) {
+var NameList;
+(function (NameList) {
     /// <reference path='_all.ts' />
-    (function (models) {
+    (function (Models) {
         "use strict";
 
         var Item = (function () {
@@ -9,7 +9,7 @@ var nameList;
             }
             return Item;
         })();
-        models.Item = Item;
+        Models.Item = Item;
 
         var NameListModel = (function () {
             function NameListModel() {
@@ -17,15 +17,15 @@ var nameList;
             }
             return NameListModel;
         })();
-        models.NameListModel = NameListModel;
+        Models.NameListModel = NameListModel;
 
         var AddItemDialogModel = (function () {
             function AddItemDialogModel() {
             }
             return AddItemDialogModel;
         })();
-        models.AddItemDialogModel = AddItemDialogModel;
-    })(nameList.models || (nameList.models = {}));
-    var models = nameList.models;
-})(nameList || (nameList = {}));
+        Models.AddItemDialogModel = AddItemDialogModel;
+    })(NameList.Models || (NameList.Models = {}));
+    var Models = NameList.Models;
+})(NameList || (NameList = {}));
 //@ sourceMappingURL=models.js.map

@@ -1,7 +1,7 @@
 /// <reference path='_all.ts' />
-var nameList;
-(function (nameList) {
+var NameList;
+(function (NameList) {
     "use strict";
     var app = angular.module("NameListApp", ["ngResource", "ui", "ui.bootstrap"]);
-})(nameList || (nameList = {}));
+})(NameList || (NameList = {}));
 //@ sourceMappingURL=app.js.map

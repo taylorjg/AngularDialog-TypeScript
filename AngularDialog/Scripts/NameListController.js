@@ -1,61 +1,54 @@
-﻿/// <reference path="ThirdParty/AngularJS/angular.js" />
-/// <reference path="models.js" />
+var NameList;
+(function (NameList) {
+    /// <reference path="_all.ts" />
+    (function (Controllers) {
+        "use strict";
 
-// ReSharper disable InconsistentNaming
+        var NameListController = (function () {
+            function NameListController($scope, $dialog, nameListService) {
+                var _this = this;
+                this.$scope = $scope;
+                this.$dialog = $dialog;
+                this.nameListService = nameListService;
+                $scope.nameListModel = new NameList.Models.NameListModel();
+                $scope.nameListModel.items = nameListService.query();
+                $scope.onAddItem = function () {
+                    return _this.onAddItem();
+                };
+                $scope.onEditItem = function (item) {
+                    return _this.onEditItem(item);
+                };
+                $scope.onDeleteItem = function (item) {
+                    return _this.onDeleteItem(item);
+                };
+            }
+            NameListController.prototype.injection = function () {
+                return [
+                    "$scope",
+                    "$dialog",
+                    "nameListService",
+                    NameListController
+                ];
+            };
 
-(function () {
+            NameListController.prototype.onAddItem = function () {
+                this.onEditItem(new NameList.Models.Item());
+            };
 
-    "use strict";
+            NameListController.prototype.onEditItem = function (item) {
+                alert("onEditItem: " + item.Id);
+            };
 
-    window.nameList = window.nameList || {};
-    window.nameList.controllers = window.nameList.controllers || {};
+            NameListController.prototype.onDeleteItem = function (item) {
+                alert("onDeleteItem: " + item.Id);
+            };
+            return NameListController;
+        })();
+        Controllers.NameListController = NameListController;
 
-    var app = angular.module("NameListApp");
-
-    app.controller("nameList.controllers.NameListController", ["$scope", "$dialog", "nameListService", function ($scope, $dialog, nameListService) {
-
-        $scope.nameListModel = new nameList.models.NameListModel();
-        $scope.nameListModel.items = nameListService.query();
-
-        $scope.onAddItem = function () {
-            $scope.onEditItem({});
-        };
-
-        $scope.onEditItem = function (item) {
-            var dialog = $dialog.dialog({
-                modalFade: true,
-                resolve: {
-                    item: function () {
-                        return item;
-                    }
-                }
-            });
-            dialog.open("AddItemDialog.html", "nameList.controllers.AddItemDialogController").then(function (result) {
-                if (result) {
-                    nameListService.save(item, function () {
-                        $scope.nameListModel.items = nameListService.query();
-                    });
-                }
-            });
-        };
-
-        $scope.onDeleteItem = function (item) {
-
-            var messageBox = $dialog.messageBox(
-                "Delete Item",
-                "Are you sure you want to delete this item?",
-                [
-                    { label: "Yes", result: true, cssClass: "btn-danger deleteYesBtn" },
-                    { label: "No", result: false, cssClass: "deleteNoBtn" }
-                ]);
-
-            messageBox.open().then(function (result) {
-                if (result) {
-                    nameListService.remove(item, function () {
-                        $scope.nameListModel.items = nameListService.query();
-                    });
-                }
-            });
-        };
-    } ]);
-} ());
+        var app = angular.module("NameListApp");
+        app.controller("nameList.controllers.NameListController", NameListController.prototype.injection());
+    })(NameList.Controllers || (NameList.Controllers = {}));
+    var Controllers = NameList.Controllers;
+})(NameList || (NameList = {}));
+//@ sourceMappingURL=NameListController.js.map

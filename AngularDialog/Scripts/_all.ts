@@ -4,3 +4,4 @@
 /// <reference path='DefinitelyTyped/underscore/underscore.d.ts' />
 /// <reference path='models.ts' />
 /// <reference path='app.ts' />
+/// <reference path='interfaces.ts' />

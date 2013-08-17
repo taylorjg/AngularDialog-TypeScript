@@ -1,10 +1,11 @@
 /// <reference path='_all.ts' />
 
-module nameList.models {
+module NameList.Models {
 
     "use strict";
 
     export class Item {
+        public Id: number;
         public FirstName: string;
         public LastName: string;
         public Email: string;

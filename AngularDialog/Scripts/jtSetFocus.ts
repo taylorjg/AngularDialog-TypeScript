@@ -1,6 +1,6 @@
 /// <reference path="_all.ts" />
 
-module nameListDirectives {
+module NameList.Directives {
 
     "use strict";
 
