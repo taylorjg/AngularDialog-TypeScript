@@ -20,7 +20,8 @@ var NameList;
         Models.NameListModel = NameListModel;
 
         var AddItemDialogModel = (function () {
-            function AddItemDialogModel() {
+            function AddItemDialogModel(item) {
+                this.item = item;
             }
             return AddItemDialogModel;
         })();

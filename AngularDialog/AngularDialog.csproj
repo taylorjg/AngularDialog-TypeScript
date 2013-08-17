@@ -74,7 +74,10 @@
   <ItemGroup>
     <Content Include="AddItemDialog.html" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\AddItemDialogController.js" />
+    <TypeScriptCompile Include="Scripts\AddItemDialogController.ts" />
+    <Content Include="Scripts\AddItemDialogController.js">
+      <DependentUpon>AddItemDialogController.ts</DependentUpon>
+    </Content>
     <TypeScriptCompile Include="Scripts\app.ts" />
     <Content Include="Scripts\app.js">
       <DependentUpon>app.ts</DependentUpon>

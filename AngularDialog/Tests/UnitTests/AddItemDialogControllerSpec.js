@@ -22,7 +22,7 @@
             angular.mock.inject(function ($rootScope, $controller, $dialog) {
 
                 _scope = $rootScope.$new();
-                _scope.addItemDialogForm = {};
+                _scope.form = {};
 
                 _dialog = $dialog.dialog();
 
@@ -53,7 +53,7 @@
         it("onOk() invokes dialog.close() passing true when the form is valid", function () {
 
             // Arrange
-            _scope.addItemDialogForm.$valid = true;
+            _scope.form.$valid = true;
             spyOn(_dialog, "close");
 
             // Act
@@ -66,7 +66,7 @@
         it("onOk() does not invoke dialog.close() when the form is invalid", function () {
 
             // Arrange
-            _scope.addItemDialogForm.$valid = false;
+            _scope.form.$valid = false;
             spyOn(_dialog, "close");
 
             // Act

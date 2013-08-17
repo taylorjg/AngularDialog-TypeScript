@@ -15,4 +15,16 @@ module NameList.Interfaces {
         save: (item: NameList.Models.Item, successFn?: Function, errorFn?: Function) => void;
         remove: (item: NameList.Models.Item, successFn?: Function, errorFn?: Function) => void;
     }
+
+    export interface IAddItemDialogScope {
+        addItemDialogModel: NameList.Models.AddItemDialogModel;
+        setFocusToFirstNameField: boolean;
+        dialogTitle: string;
+        onOk: () => void;
+        onCancel: () => void;
+    }
+
+    export interface IFormControllerExt extends ng.IFormController {
+        mySubmitAttempted: boolean;
+    }
 }

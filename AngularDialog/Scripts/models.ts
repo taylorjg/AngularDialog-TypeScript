@@ -16,6 +16,7 @@ module NameList.Models {
     }
 
     export class AddItemDialogModel {
-        public item: Item;
+        constructor(private item: Item) {
+        }
     }
 }
