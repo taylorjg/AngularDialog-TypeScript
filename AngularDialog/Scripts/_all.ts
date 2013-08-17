@@ -3,3 +3,4 @@
 /// <reference path='DefinatelyTyped/jquery/jquery.d.ts' />
 /// <reference path='DefinatelyTyped/underscore/underscore.d.ts' />
 /// <reference path='models.ts' />
+/// <reference path='app.ts' />

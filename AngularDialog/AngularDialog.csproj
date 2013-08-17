@@ -75,7 +75,10 @@
     <Content Include="AddItemDialog.html" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\AddItemDialogController.js" />
-    <Content Include="Scripts\app.js" />
+    <TypeScriptCompile Include="Scripts\app.ts" />
+    <Content Include="Scripts\app.js">
+      <DependentUpon>app.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts\DefinatelyTyped\angular\angular-mocks.d.ts" />
     <Content Include="Scripts\DefinatelyTyped\angular\angular-resource.d.ts" />
     <Content Include="Scripts\DefinatelyTyped\angular\angular-scenario.d.ts" />

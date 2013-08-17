@@ -1,5 +1,6 @@
 var nameList;
 (function (nameList) {
+    /// <reference path='_all.ts' />
     (function (models) {
         "use strict";
 
