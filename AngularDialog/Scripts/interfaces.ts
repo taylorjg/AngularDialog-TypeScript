@@ -3,7 +3,7 @@
 module NameList.Interfaces {
 
     export interface INameListScope extends ng.IScope {
-        nameListModel: NameList.Models.NameListModel;
+        model: NameList.Models.NameListModel;
         onAddItem: () => void;
         onEditItem: (item: NameList.Models.Item) => void;
         onDeleteItem: (item: NameList.Models.Item) => void;

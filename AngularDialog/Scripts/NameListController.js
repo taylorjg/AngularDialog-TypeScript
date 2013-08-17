@@ -10,8 +10,8 @@ var NameList;
                 this.$scope = $scope;
                 this.$dialog = $dialog;
                 this.nameListService = nameListService;
-                $scope.nameListModel = new NameList.Models.NameListModel();
-                $scope.nameListModel.items = nameListService.query();
+                $scope.model = new NameList.Models.NameListModel();
+                $scope.model.items = nameListService.query();
                 $scope.onAddItem = function () {
                     return _this.onAddItem();
                 };
@@ -48,7 +48,7 @@ var NameList;
                 dialog.open("AddItemDialog.html", "nameList.controllers.AddItemDialogController").then(function (result) {
                     if (result) {
                         self.nameListService.save(item, function () {
-                            self.$scope.nameListModel.items = self.nameListService.query();
+                            self.$scope.model.items = self.nameListService.query();
                         });
                     }
                 });
@@ -65,7 +65,7 @@ var NameList;
                 messageBox.open().then(function (result) {
                     if (result) {
                         self.nameListService.remove(item, function () {
-                            self.$scope.nameListModel.items = self.nameListService.query();
+                            self.$scope.model.items = self.nameListService.query();
                         });
                     }
                 });

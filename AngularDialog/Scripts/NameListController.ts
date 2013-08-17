@@ -20,8 +20,8 @@ module NameList.Controllers {
             private $dialog: any,
             private nameListService: NameList.Interfaces.INameListService) {
 
-            $scope.nameListModel = new NameList.Models.NameListModel();
-            $scope.nameListModel.items = <any>nameListService.query();
+            $scope.model = new NameList.Models.NameListModel();
+            $scope.model.items = <any>nameListService.query();
             $scope.onAddItem = () => this.onAddItem();
             $scope.onEditItem = (item: NameList.Models.Item) => this.onEditItem(item);
             $scope.onDeleteItem = (item: NameList.Models.Item) => this.onDeleteItem(item);
@@ -44,7 +44,7 @@ module NameList.Controllers {
             dialog.open("AddItemDialog.html", "nameList.controllers.AddItemDialogController").then(function (result) {
                 if (result) {
                     self.nameListService.save(item, function () {
-                        self.$scope.nameListModel.items = <any>self.nameListService.query();
+                        self.$scope.model.items = <any>self.nameListService.query();
                     });
                 }
             });
@@ -65,7 +65,7 @@ module NameList.Controllers {
             messageBox.open().then(function (result) {
                 if (result) {
                     self.nameListService.remove(item, function () {
-                        self.$scope.nameListModel.items = <any>self.nameListService.query();
+                        self.$scope.model.items = <any>self.nameListService.query();
                     });
                 }
             });
