@@ -97,7 +97,10 @@
     <Content Include="Scripts\jtSetFocus.js">
       <DependentUpon>jtSetFocus.ts</DependentUpon>
     </Content>
-    <Content Include="Scripts\jtValidationDirectives.js" />
+    <TypeScriptCompile Include="Scripts\jtValidationDirectives.ts" />
+    <Content Include="Scripts\jtValidationDirectives.js">
+      <DependentUpon>jtValidationDirectives.ts</DependentUpon>
+    </Content>
     <TypeScriptCompile Include="Scripts\models.ts" />
     <Content Include="Scripts\models.js">
       <DependentUpon>models.ts</DependentUpon>
