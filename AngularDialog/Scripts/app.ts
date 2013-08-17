@@ -2,5 +2,5 @@
 
 module nameList {
     "use strict";
-    angular.module("NameListApp", ["ngResource", "ui", "ui.bootstrap"]);
+    var app = angular.module("NameListApp", ["ngResource", "ui", "ui.bootstrap"]);
 }

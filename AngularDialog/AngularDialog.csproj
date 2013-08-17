@@ -86,7 +86,10 @@
     <Content Include="Scripts\DefinitelyTyped\jasmine\jasmine.d.ts" />
     <Content Include="Scripts\DefinitelyTyped\jquery\jquery.d.ts" />
     <Content Include="Scripts\DefinitelyTyped\underscore\underscore.d.ts" />
-    <Content Include="Scripts\jtSetFocus.js" />
+    <TypeScriptCompile Include="Scripts\jtSetFocus.ts" />
+    <Content Include="Scripts\jtSetFocus.js">
+      <DependentUpon>jtSetFocus.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts\jtValidationDirectives.js" />
     <TypeScriptCompile Include="Scripts\models.ts" />
     <Content Include="Scripts\models.js">
