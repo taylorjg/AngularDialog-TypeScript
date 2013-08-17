@@ -1,27 +1,5 @@
 /// <reference path="_all.ts" />
 
-//module todos {
-//    'use strict';
-
-//    export interface ITodoScope extends ng.IScope {
-//        todos: TodoItem[];
-//        newTodo: string;
-//        editedTodo: TodoItem;
-//        remainingCount: number;
-//        doneCount: number;
-//        allChecked: bool;
-//        statusFilter: { completed: bool; };
-//        location: ng.ILocationService;
-
-//        addTodo: () => void;
-//        editTodo: (todoItem: TodoItem) => void;
-//        doneEditing: (todoItem: TodoItem) => void;
-//        removeTodo: (todoItem: TodoItem) => void;
-//        clearDoneTodos: () => void;
-//        markAll: (completed: bool) => void;
-//    }
-//}
-
 module NameList.Interfaces {
 
     export interface INameListScope extends ng.IScope {
@@ -29,5 +7,12 @@ module NameList.Interfaces {
         onAddItem: () => void;
         onEditItem: (item: NameList.Models.Item) => void;
         onDeleteItem: (item: NameList.Models.Item) => void;
+    }
+
+    export interface INameListService {
+        query: (successFn?: Function, errorFn?: Function) => ng.resource.IResource;
+        get: (id: number, successFn?: Function, errorFn?: Function) => ng.resource.IResource;
+        save: (item: NameList.Models.Item, successFn?: Function, errorFn?: Function) => void;
+        remove: (item: NameList.Models.Item, successFn?: Function, errorFn?: Function) => void;
     }
 }

@@ -103,7 +103,10 @@
     <Content Include="Scripts\NameListController.js">
       <DependentUpon>NameListController.ts</DependentUpon>
     </Content>
-    <Content Include="Scripts\NameListService.js" />
+    <TypeScriptCompile Include="Scripts\NameListService.ts" />
+    <Content Include="Scripts\NameListService.js">
+      <DependentUpon>NameListService.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts\PollyFill\html5shiv.js" />
     <Content Include="Scripts\PollyFill\json2.js" />
     <TypeScriptCompile Include="Scripts\_all.ts" />

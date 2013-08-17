@@ -1,80 +1,86 @@
-﻿// ReSharper disable InconsistentNaming
+var NameList;
+(function (NameList) {
+    /// <reference path="_all.ts" />
+    (function (Services) {
+        "use strict";
 
-(function () {
+        var NameListService = (function () {
+            function NameListService($resource, $q, $interpolate, $window) {
+                this.$resource = $resource;
+                this.$q = $q;
+                this.$interpolate = $interpolate;
+                this.$window = $window;
+                var url = $interpolate("http://{{hostname}}\\:{{port}}/Api/NameList/:id")({
+                    hostname: $window.location.hostname,
+                    port: $window.location.port
+                });
 
-    "use strict";
+                this._resource = $resource(url, { id: "@Id" });
+            }
+            NameListService.prototype.injection = function () {
+                return [
+                    "$resource",
+                    "$q",
+                    "$interpolate",
+                    "$window",
+                    NameListService
+                ];
+            };
 
-    var app = angular.module("NameListApp");
+            NameListService.prototype.query = function (successFn, errorFn) {
+                successFn = successFn || angular.noop;
+                errorFn = errorFn || angular.noop;
 
-    app.service("nameListService", ["$resource", "$q", "$interpolate", "$window", function($resource, $q, $interpolate, $window) {
-
-        var url = $interpolate("http://{{hostname}}\\:{{port}}/Api/NameList/:id")({
-            hostname: $window.location.hostname,
-            port: $window.location.port
-        });
-
-        var _resource = $resource(url, { id: "@Id" });
-
-        this.query = function(successFn, errorFn) {
-
-            successFn = successFn || angular.noop;
-            errorFn = errorFn || angular.noop;
-
-            return _resource.query(
-                function(items) {
+                return this._resource.query(function (items) {
                     successFn(items);
-                }, function(err) {
+                }, function (err) {
                     errorFn(err);
                 });
-        };
+            };
 
-        this.get = function(id, successFn, errorFn) {
+            NameListService.prototype.get = function (id, successFn, errorFn) {
+                successFn = successFn || angular.noop;
+                errorFn = errorFn || angular.noop;
 
-            successFn = successFn || angular.noop;
-            errorFn = errorFn || angular.noop;
-
-            return _resource.get(
-                {
+                return this._resource.get({
                     id: id
-                },
-                function(item) {
+                }, function (item) {
                     successFn(item);
-                },
-                function(err) {
+                }, function (err) {
                     errorFn(err);
                 });
-        };
+            };
 
-        this.save = function(item, successFn, errorFn) {
+            NameListService.prototype.save = function (item, successFn, errorFn) {
+                successFn = successFn || angular.noop;
+                errorFn = errorFn || angular.noop;
 
-            successFn = successFn || angular.noop;
-            errorFn = errorFn || angular.noop;
-
-            _resource.save(
-                item,
-                function(item2) {
+                this._resource.save(item, function (item2) {
                     successFn(item2);
-                },
-                function(err) {
+                }, function (err) {
                     errorFn(err);
                 });
-        };
+            };
 
-        this.remove = function(item, successFn, errorFn) {
+            NameListService.prototype.remove = function (item, successFn, errorFn) {
+                successFn = successFn || angular.noop;
+                errorFn = errorFn || angular.noop;
 
-            successFn = successFn || angular.noop;
-            errorFn = errorFn || angular.noop;
-
-            _resource.remove(
-                {
+                this._resource.remove({
                     id: item.Id
-                },
-                function(x) {
+                }, function (x) {
                     successFn(x);
-                },
-                function(err) {
+                }, function (err) {
                     errorFn(err);
                 });
-        };
-    }]);
-} ());
+            };
+            return NameListService;
+        })();
+        Services.NameListService = NameListService;
+
+        var app = angular.module("NameListApp");
+        app.service("nameListService", NameListService.prototype.injection());
+    })(NameList.Services || (NameList.Services = {}));
+    var Services = NameList.Services;
+})(NameList || (NameList = {}));
+//@ sourceMappingURL=NameListService.js.map
