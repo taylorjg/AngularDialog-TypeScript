@@ -31,9 +31,9 @@
                 browser().navigateTo(urlWithTestIdentifier(2));
                 expect(window.repeater("table tbody tr").count()).toBe(2);
                 element("#addItemBtn").click();
-                input("addItemDialogModel.item.FirstName").enter("firstname3");
-                input("addItemDialogModel.item.LastName").enter("lastname3");
-                input("addItemDialogModel.item.Email").enter("firstname3.lastname3@gmail.com");
+                input("model.item.FirstName").enter("firstname3");
+                input("model.item.LastName").enter("lastname3");
+                input("model.item.Email").enter("firstname3.lastname3@gmail.com");
                 element("#okBtn").click();
                 expect(window.repeater("table tbody tr").count()).toBe(3);
             });
@@ -41,9 +41,9 @@
             it("item added via the AddItem dialog box has the correct values", function () {
                 browser().navigateTo(urlWithTestIdentifier(2));
                 element("#addItemBtn").click();
-                input("addItemDialogModel.item.FirstName").enter("firstname3");
-                input("addItemDialogModel.item.LastName").enter("lastname3");
-                input("addItemDialogModel.item.Email").enter("firstname3.lastname3@gmail.com");
+                input("model.item.FirstName").enter("firstname3");
+                input("model.item.LastName").enter("lastname3");
+                input("model.item.Email").enter("firstname3.lastname3@gmail.com");
                 element("#okBtn").click();
                 expect(window.repeater("table tbody tr").count()).toBe(3);
                 expect(window.repeater("table tbody tr").row(2)).toEqual(["3", "firstname3", "lastname3", "firstname3.lastname3@gmail.com"]);
@@ -79,8 +79,8 @@
             it("an item can be edited", function () {
                 browser().navigateTo(urlWithTestIdentifier(3));
                 window.using("table tbody tr:nth-of-type(2)").element(".editBtn").click();
-                input("addItemDialogModel.item.FirstName").enter("firstname2-new");
-                input("addItemDialogModel.item.LastName").enter("lastname2-new");
+                input("model.item.FirstName").enter("firstname2-new");
+                input("model.item.LastName").enter("lastname2-new");
                 element("#okBtn").click();
                 expect(window.repeater("table tbody tr").count()).toBe(2);
                 expect(window.repeater("table tbody tr").row(0)).toEqual(["1", "firstname1", "lastname1", "firstname1.lastname1@gmail.com"]);
@@ -136,9 +136,9 @@
             it("displays an email validation error message when trying to submit a form with an invalid email address", function () {
                 browser().navigateTo(urlWithTestIdentifier(1));
                 element("#addItemBtn").click();
-                input("addItemDialogModel.item.FirstName").enter("firstname3");
-                input("addItemDialogModel.item.LastName").enter("lastname3");
-                input("addItemDialogModel.item.Email").enter("bogus");
+                input("model.item.FirstName").enter("firstname3");
+                input("model.item.LastName").enter("lastname3");
+                input("model.item.Email").enter("bogus");
                 element("#okBtn").click();
                 expect(element("div[data-ng-form] span[data-jt-email-validation-error]:visible").count()).toBe(1);
                 expect(element("div[data-ng-form] span[data-jt-required-field-validation-error]:hidden").count()).toBe(3);

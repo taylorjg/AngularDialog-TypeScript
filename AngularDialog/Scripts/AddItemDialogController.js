@@ -10,7 +10,7 @@ var NameList;
                 this.$scope = $scope;
                 this.dialog = dialog;
                 this.item = item;
-                $scope.addItemDialogModel = new NameList.Models.AddItemDialogModel(item);
+                $scope.model = new NameList.Models.AddItemDialogModel(item);
                 $scope.setFocusToFirstNameField = true;
                 $scope.dialogTitle = (item.Id) ? "Edit Item " + item.Id : "Add Item";
                 $scope.onOk = function () {

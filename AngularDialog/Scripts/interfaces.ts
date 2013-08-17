@@ -17,7 +17,7 @@ module NameList.Interfaces {
     }
 
     export interface IAddItemDialogScope {
-        addItemDialogModel: NameList.Models.AddItemDialogModel;
+        model: NameList.Models.AddItemDialogModel;
         setFocusToFirstNameField: boolean;
         dialogTitle: string;
         onOk: () => void;

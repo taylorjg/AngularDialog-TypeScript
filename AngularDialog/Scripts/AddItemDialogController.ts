@@ -20,7 +20,7 @@ module NameList.Controllers {
             private dialog: any,
             private item: NameList.Models.Item) {
 
-            $scope.addItemDialogModel = new NameList.Models.AddItemDialogModel(item);
+            $scope.model = new NameList.Models.AddItemDialogModel(item);
             $scope.setFocusToFirstNameField = true;
             $scope.dialogTitle = (item.Id) ? "Edit Item " + item.Id : "Add Item";
             $scope.onOk = () => this.onOk();
