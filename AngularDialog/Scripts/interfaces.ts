@@ -25,6 +25,6 @@ module NameList.Interfaces {
     }
 
     export interface IFormControllerExt extends ng.IFormController {
-        mySubmitAttempted: boolean;
+        submitAttempted: boolean;
     }
 }

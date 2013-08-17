@@ -29,7 +29,7 @@ module NameList.Controllers {
 
         private onOk(): void {
             var form: NameList.Interfaces.IFormControllerExt = (<any>this.$scope).form;
-            form.mySubmitAttempted = true;
+            form.submitAttempted = true;
             if (form.$valid) {
                 this.dialog.close(true);
             }

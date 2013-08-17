@@ -15,7 +15,7 @@
         var formName = $(form[0]).attr("data-name");
         var controlName = $(control[0]).attr("data-name");
 
-        var watchExpression = $interpolate("{{formName}}.mySubmitAttempted && {{formName}}.{{controlName}}.$error.{{errorProperty}}")({
+        var watchExpression = $interpolate("{{formName}}.submitAttempted && {{formName}}.{{controlName}}.$error.{{errorProperty}}")({
             formName: formName,
             controlName: controlName,
             errorProperty: errorProperty

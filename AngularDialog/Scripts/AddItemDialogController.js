@@ -31,7 +31,7 @@ var NameList;
 
             AddItemDialogController.prototype.onOk = function () {
                 var form = (this.$scope).form;
-                form.mySubmitAttempted = true;
+                form.submitAttempted = true;
                 if (form.$valid) {
                     this.dialog.close(true);
                 }
