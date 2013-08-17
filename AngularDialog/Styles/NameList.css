@@ -1,0 +1,14 @@
+﻿.modal {
+    width: 720px;
+    margin-left: -360px;
+}
+
+.required-field {
+	color: red;
+}
+
+.editBtn {
+}
+
+.deleteBtn {
+}
