@@ -12,9 +12,13 @@ var NameList;
 
         var JtValidationBase = (function () {
             function JtValidationBase($interpolate, attributeName, errorPropertyName) {
+                var _this = this;
                 this.$interpolate = $interpolate;
                 this.attributeName = attributeName;
                 this.errorPropertyName = errorPropertyName;
+                this.link = function ($scope, element, attributes) {
+                    return _this.linkFn($scope, element, attributes);
+                };
             }
             JtValidationBase.prototype.linkFn = function ($scope, element, attributes) {
                 var form = element.closest("[data-ng-form]");
@@ -45,11 +49,7 @@ var NameList;
         var JtRequiredFieldValidationError = (function (_super) {
             __extends(JtRequiredFieldValidationError, _super);
             function JtRequiredFieldValidationError($interpolate) {
-                var _this = this;
                 _super.call(this, $interpolate, "jtRequiredFieldValidationError", "required");
-                this.link = function ($scope, element, attributes) {
-                    return _this.linkFn($scope, element, attributes);
-                };
             }
             JtRequiredFieldValidationError.prototype.injection = function () {
                 return [
@@ -66,11 +66,7 @@ var NameList;
         var JtEmailValidationError = (function (_super) {
             __extends(JtEmailValidationError, _super);
             function JtEmailValidationError($interpolate) {
-                var _this = this;
                 _super.call(this, $interpolate, "jtEmailValidationError", "email");
-                this.link = function ($scope, element, attributes) {
-                    return _this.linkFn($scope, element, attributes);
-                };
             }
             JtEmailValidationError.prototype.injection = function () {
                 return [

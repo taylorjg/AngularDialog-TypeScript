@@ -4,7 +4,7 @@ module NameList.Directives {
 
     "use strict";
 
-    export class JtValidationBase {
+    export class JtValidationBase implements ng.IDirective {
 
         public link: ($scope: ng.IScope, element: JQuery, attributes: any) => any;
 
@@ -12,9 +12,11 @@ module NameList.Directives {
             private $interpolate: ng.IInterpolateService,
             private attributeName: string,
             private errorPropertyName: string) {
+
+            this.link = ($scope, element, attributes) => this.linkFn($scope, element, attributes);
         }
 
-        linkFn($scope, element, attributes) {
+        private linkFn($scope, element, attributes) {
 
             var form = element.closest("[data-ng-form]");
             var controlSelector = attributes[this.attributeName];
@@ -50,7 +52,6 @@ module NameList.Directives {
 
         constructor($interpolate: ng.IInterpolateService) {
             super($interpolate, "jtRequiredFieldValidationError", "required");
-            this.link = ($scope, element, attributes) => this.linkFn($scope, element, attributes);
         }
     }
 
@@ -65,7 +66,6 @@ module NameList.Directives {
 
         constructor($interpolate: ng.IInterpolateService) {
             super($interpolate, "jtEmailValidationError", "email");
-            this.link = ($scope, element, attributes) => this.linkFn($scope, element, attributes);
         }
     }
 

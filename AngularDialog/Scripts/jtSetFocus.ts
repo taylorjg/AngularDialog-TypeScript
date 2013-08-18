@@ -4,7 +4,7 @@ module NameList.Directives {
 
     "use strict";
 
-    export class JtSetFocus {
+    export class JtSetFocus implements ng.IDirective {
 
         public link: ($scope: ng.IScope, element: JQuery, attributes: any) => any;
 
@@ -19,7 +19,7 @@ module NameList.Directives {
             this.link = ($scope, element, attributes) => this.linkFn($scope, element, attributes);
         }
 
-        linkFn($scope: ng.IScope, element: JQuery, attributes: any): any {
+        private linkFn($scope: ng.IScope, element: JQuery, attributes: any): any {
             var self = this;
             $scope.$watch(attributes.jtSetFocus, function (newValue) {
                 if (newValue) {
