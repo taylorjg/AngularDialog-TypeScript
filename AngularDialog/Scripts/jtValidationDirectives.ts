@@ -4,32 +4,40 @@ module NameList.Directives {
 
     "use strict";
 
-    // TODO: move this to a base class of JtRequiredFieldValidationError and JtEmailValidationError ?
-    var _commonValidationErrorLinkFn = function ($scope, element, attributes, $interpolate, attributeName, errorProperty) {
+    export class JtValidationBase {
 
-        var form = element.closest("[data-ng-form]");
-        var controlSelector = attributes[attributeName];
-        var control = form.find(controlSelector);
+        constructor(
+            private $interpolate: ng.IInterpolateService,
+            private attributeName: string,
+            private errorPropertyName: string) {
+        }
 
-        var formName = $(form[0]).attr("data-name");
-        var controlName = $(control[0]).attr("data-name");
+        linkFn($scope, element, attributes) {
 
-        var watchExpression = $interpolate("{{formName}}.submitAttempted && {{formName}}.{{controlName}}.$error.{{errorProperty}}")({
-            formName: formName,
-            controlName: controlName,
-            errorProperty: errorProperty
-        });
+            var form = element.closest("[data-ng-form]");
+            var controlSelector = attributes[this.attributeName];
+            var control = form.find(controlSelector);
 
-        $scope.$watch(watchExpression, function (newValue) {
-            if (newValue) {
-                element.show();
-            } else {
-                element.hide();
-            }
-        });
-    };
+            var formName = $(form[0]).attr("data-name");
+            var controlName = $(control[0]).attr("data-name");
 
-    export class JtRequiredFieldValidationError {
+            var watchExpression = this.$interpolate("{{formName}}.submitAttempted && {{formName}}.{{controlName}}.$error.{{errorPropertyName}}")({
+                formName: formName,
+                controlName: controlName,
+                errorPropertyName: this.errorPropertyName
+            });
+
+            $scope.$watch(watchExpression, function (newValue) {
+                if (newValue) {
+                    element.show();
+                } else {
+                    element.hide();
+                }
+            });
+        }
+    }
+
+    export class JtRequiredFieldValidationError extends JtValidationBase {
 
         public link: ($scope: ng.IScope, element: JQuery, attributes: any) => any;
 
@@ -40,22 +48,17 @@ module NameList.Directives {
             ]
         }
 
-        constructor(private $interpolate: ng.IInterpolateService) {
+        constructor($interpolate: ng.IInterpolateService) {
+            super($interpolate, "jtRequiredFieldValidationError", "required");
             this.link = ($scope, element, attributes) => this.linkFn($scope, element, attributes);
         }
 
         linkFn($scope: ng.IScope, element: JQuery, attributes: any): any {
-            _commonValidationErrorLinkFn(
-                $scope,
-                element,
-                attributes,
-                this.$interpolate,
-                "jtRequiredFieldValidationError",
-                "required");
+            super.linkFn($scope, element, attributes);
         }
     }
 
-    export class JtEmailValidationError {
+    export class JtEmailValidationError extends JtValidationBase {
 
         public link: ($scope: ng.IScope, element: JQuery, attributes: any) => any;
 
@@ -66,18 +69,13 @@ module NameList.Directives {
             ]
         }
 
-        constructor(private $interpolate: ng.IInterpolateService) {
+        constructor($interpolate: ng.IInterpolateService) {
+            super($interpolate, "jtEmailValidationError", "email");
             this.link = ($scope, element, attributes) => this.linkFn($scope, element, attributes);
         }
 
         linkFn($scope: ng.IScope, element: JQuery, attributes: any): any {
-            _commonValidationErrorLinkFn(
-                $scope,
-                element,
-                attributes,
-                this.$interpolate,
-                "jtEmailValidationError",
-                "email");
+            super.linkFn($scope, element, attributes);
         }
     }
 
