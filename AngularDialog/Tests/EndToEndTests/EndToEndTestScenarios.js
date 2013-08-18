@@ -76,7 +76,7 @@
                 expect(element("#email").val()).toBe("firstname2.lastname2@gmail.com");
             });
             
-            it("an item can be edited", function () {
+            it("after editing an item and clicking OK the table is updated with the new item details", function () {
                 browser().navigateTo(urlWithTestIdentifier(3));
                 window.using("table tbody tr:nth-of-type(2)").element(".editBtn").click();
                 input("model.item.FirstName").enter("firstname2-new");

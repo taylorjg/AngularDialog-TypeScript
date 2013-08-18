@@ -6,6 +6,8 @@ module NameList.Directives {
 
     export class JtValidationBase {
 
+        public link: ($scope: ng.IScope, element: JQuery, attributes: any) => any;
+
         constructor(
             private $interpolate: ng.IInterpolateService,
             private attributeName: string,
@@ -39,8 +41,6 @@ module NameList.Directives {
 
     export class JtRequiredFieldValidationError extends JtValidationBase {
 
-        public link: ($scope: ng.IScope, element: JQuery, attributes: any) => any;
-
         public injection(): any[] {
             return [
                 "$interpolate",
@@ -52,15 +52,9 @@ module NameList.Directives {
             super($interpolate, "jtRequiredFieldValidationError", "required");
             this.link = ($scope, element, attributes) => this.linkFn($scope, element, attributes);
         }
-
-        linkFn($scope: ng.IScope, element: JQuery, attributes: any): any {
-            super.linkFn($scope, element, attributes);
-        }
     }
 
     export class JtEmailValidationError extends JtValidationBase {
-
-        public link: ($scope: ng.IScope, element: JQuery, attributes: any) => any;
 
         public injection(): any[] {
             return [
@@ -72,10 +66,6 @@ module NameList.Directives {
         constructor($interpolate: ng.IInterpolateService) {
             super($interpolate, "jtEmailValidationError", "email");
             this.link = ($scope, element, attributes) => this.linkFn($scope, element, attributes);
-        }
-
-        linkFn($scope: ng.IScope, element: JQuery, attributes: any): any {
-            super.linkFn($scope, element, attributes);
         }
     }
 

@@ -59,10 +59,6 @@ var NameList;
                     }
                 ];
             };
-
-            JtRequiredFieldValidationError.prototype.linkFn = function ($scope, element, attributes) {
-                _super.prototype.linkFn.call(this, $scope, element, attributes);
-            };
             return JtRequiredFieldValidationError;
         })(JtValidationBase);
         Directives.JtRequiredFieldValidationError = JtRequiredFieldValidationError;
@@ -83,10 +79,6 @@ var NameList;
                         return new JtEmailValidationError($interpolate);
                     }
                 ];
-            };
-
-            JtEmailValidationError.prototype.linkFn = function ($scope, element, attributes) {
-                _super.prototype.linkFn.call(this, $scope, element, attributes);
             };
             return JtEmailValidationError;
         })(JtValidationBase);
