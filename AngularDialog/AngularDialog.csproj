@@ -91,7 +91,7 @@
     <Content Include="Scripts\DefinitelyTyped\underscore\underscore.d.ts" />
     <TypeScriptCompile Include="Scripts\jtSetFocus.ts" />
     <TypeScriptCompile Include="Scripts\interfaces.ts" />
-    <Content Include="Scripts\Interfaces.js">
+    <Content Include="Scripts\interfaces.js">
       <DependentUpon>interfaces.ts</DependentUpon>
     </Content>
     <Content Include="Scripts\jtSetFocus.js">
