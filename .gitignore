@@ -71,7 +71,7 @@ packages/
 node_modules/
 
 # TypeScript sourcemap files
-*.js.map
+# *.js.map
 
 # Visual C++ cache files
 ipch/

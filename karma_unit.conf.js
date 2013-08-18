@@ -19,8 +19,7 @@ module.exports = function(config) {
 		"AngularDialog/Scripts/ThirdParty/AngularJS/angular-mocks.js",
 		"AngularDialog/Scripts/ThirdParty/AngularUI/angular-ui.js",
 		"AngularDialog/Scripts/ThirdParty/AngularUIBootstrap/ui-bootstrap-tpls-0.2.0.js",
-		"AngularDialog/Scripts/app.js", // ensure app.js is listed first to avoid "Error: No module: NameListApp"
-		"AngularDialog/Scripts/*.js",
+		"AngularDialog/Scripts/CombinedCompiledTypeScript.js",
 		"AngularDialog/Tests/UnitTests/*.js"
     ],
 

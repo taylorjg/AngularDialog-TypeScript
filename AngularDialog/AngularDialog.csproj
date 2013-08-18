@@ -115,7 +115,7 @@
     </Content>
     <Content Include="Scripts\PollyFill\html5shiv.js" />
     <Content Include="Scripts\PollyFill\json2.js" />
-    <TypeScriptCompile Include="Scripts\_all.ts" />
+    <None Include="Scripts\_all.ts" />
     <Content Include="Scripts\_all.js">
       <DependentUpon>_all.ts</DependentUpon>
     </Content>
@@ -230,4 +230,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="BeforeBuild">
+    <Exec Command="tsc --out Scripts\CombinedCompiledTypeScript.js @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ')" />
+  </Target>
 </Project>

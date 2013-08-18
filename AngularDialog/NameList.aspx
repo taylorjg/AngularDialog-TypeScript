@@ -19,13 +19,11 @@
         <script src="Scripts/ThirdParty/AngularJS/angular-resource.js" type="text/javascript"></script>
         <script src="Scripts/ThirdParty/AngularUI/angular-ui.js" type="text/javascript"></script>
         <script src="Scripts/ThirdParty/AngularUIBootstrap/ui-bootstrap-tpls-0.2.0.js" type="text/javascript"></script>
-        <script src="Scripts/models.js" type="text/javascript"></script>
-        <script src="Scripts/app.js" type="text/javascript"></script>
-        <script src="Scripts/NameListController.js" type="text/javascript"></script>
-        <script src="Scripts/AddItemDialogController.js" type="text/javascript"></script>
-        <script src="Scripts/NameListService.js" type="text/javascript"></script>
-        <script src="Scripts/jtValidationDirectives.js" type="text/javascript"></script>
-        <script src="Scripts/jtSetFocus.js" type="text/javascript"></script>
+
+<%-- ReSharper disable Html.PathError --%>
+        <script src="Scripts/CombinedCompiledTypeScript.js" type="text/javascript"></script>
+<%-- ReSharper restore Html.PathError --%>
+
         <% if (IsInAngularJsEndToEndTestMode) { %>
             <script src="Tests/EndToEndTests/EndToEndTestHttpBackendSetup.js" type="text/javascript"></script>
             <script src="Scripts/ThirdParty/AngularJS/angular-mocks.js" type="text/javascript"></script>
