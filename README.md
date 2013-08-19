@@ -50,7 +50,7 @@ I converted the .js files to .ts files one at a time starting with the simplest 
 
 ### Compiling multiple TypeScript files to a single JavaScript file
 
-I used the following article to compile all .ts files to a single .js file:
+I used information in the following article to figure out how to compile all .ts files to a single .js file:
 
 http://www.stevefenton.co.uk/Content/Blog/Date/201301/Blog/Getting-The-Right-Set-Up-For-TypeScript/
 
