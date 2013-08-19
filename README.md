@@ -60,6 +60,14 @@ http://www.stevefenton.co.uk/Content/Blog/Date/201301/Blog/Getting-The-Right-Set
   </Target>
 ```
 
+### Unit Tests
+
+No changes were necessary until I got to the point where I was compiling all the .ts files to a single .js file. At that point I edited karma_unit.conf.js to load the single .js file instead of the individual .js files.
+
+### End-to-End (e2e) Tests
+
+No changes were necessary.
+
 ## TODO
 
 * Add subfolders for:
